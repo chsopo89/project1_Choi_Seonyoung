@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Python으로 모델에 첫 질문 보내기
 
 Ollama 설치와 CLI 대화를 마친 뒤, VS Code와 uv로 실행하는 작은 예제입니다.
@@ -44,3 +45,6 @@ uv run python 03_measure_time.py
 이 값은 첫 토큰 시간(TTFT)이 아닙니다. 모델을 처음 불러오는 시간과 PC 상태, 답변 길이에 영향을 받으므로 한 번의 숫자만으로 모델 우열을 정하지 않습니다.
 
 실행 파일 안의 `QUESTION` 한 줄을 바꾸고 **Ctrl+S**로 저장하면 다른 질문을 보낼 수 있습니다. 이 파일들은 대화 기록을 유지하지 않고, 매번 질문 1개를 새로 보냅니다.
+=======
+# project1_Choi_Seonyoung
+>>>>>>> e2b8b22b878e1ceecebd64ffb2e5eb1686a2f85b
