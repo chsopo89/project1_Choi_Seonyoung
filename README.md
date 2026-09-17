@@ -191,6 +191,3 @@ Copy-Item <백업파일> .\scores_v2_t1.csv -Force
 =======
 실행 파일 안의 `QUESTION` 한 줄을 바꾸고 **Ctrl+S**로 저장하면 다른 질문을 보낼 수 있습니다. 이 파일들은 대화 기록을 유지하지 않고, 매번 질문 1개를 새로 보냅니다.
 =======
-# project1_Choi_Seonyoung
-
->>>>>>> 1e52634c3a66e2bbfbe7c7b8e8b531fe5a707546
