@@ -13,7 +13,7 @@ def out(msg=""):
     print(msg, flush=True)
 
 
-CSV_PATH = "benchmark_log.csv"
+CSV_PATH = "benchmark_local_v2.csv"
 W = 15
 
 
