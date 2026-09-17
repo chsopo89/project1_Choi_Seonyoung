@@ -1,0 +1,822 @@
+{
+  "enable-nat": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "FortiGate CLI Reference > vpn ipsec phase1-interface (NAT-T 옵션은 nattraversal)",
+    "checked_at": "2026-09-16"
+  },
+  "diag view": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "FortiGate CLI Reference > diagnose (해당 명령 없음)",
+    "checked_at": "2026-09-16"
+  },
+  "diag debug flow show": {
+    "verdict": "partial",
+    "vendor": "fortigate",
+    "source": "FortiGate CLI Reference > diagnose debug flow (출력 옵션 설정 명령, 로그 조회 아님)",
+    "checked_at": "2026-09-16"
+  },
+  "diagnose vpn ike sa list": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전 (실제: diagnose vpn ike gateway list)",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose vpn ipsec sa list": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전 (실제: diagnose vpn tunnel list)",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose vpn ike log list": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diag debug application ipsec": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose sys virtual-ip": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose firewall log": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose firewall vip list": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose firewall vip get": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose firewall policy list": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전 (실제: diagnose firewall iprope list)",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose interface list": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전 (실제: diagnose netlink interface list)",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose vpn tunnel list": {
+    "verdict": "ok",
+    "vendor": "fortigate",
+    "source": "FortiOS 기본 진단 명령, 버전 무관 확인",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose debug application ike": {
+    "verdict": "ok",
+    "vendor": "fortigate",
+    "source": "FortiOS 기본 진단 명령, 버전 무관 확인",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose debug enable": {
+    "verdict": "ok",
+    "vendor": "fortigate",
+    "source": "FortiOS 기본 진단 명령, 버전 무관 확인",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose sys top": {
+    "verdict": "ok",
+    "vendor": "fortigate",
+    "source": "FortiOS 기본 진단 명령, 버전 무관 확인",
+    "checked_at": "2026-09-17"
+  },
+  "get vpn ipsec tunnel summary": {
+    "verdict": "ok",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show ip route": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show crypto ipsec sa": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show interfaces transceiver": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, IOS 기준, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show inventory": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show ntp status": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "get vpn": {
+    "verdict": "ok",
+    "vendor": "screenos",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "get sa": {
+    "verdict": "ok",
+    "vendor": "screenos",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "debug ike detail": {
+    "verdict": "ok",
+    "vendor": "screenos",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "get dbuf stream": {
+    "verdict": "ok",
+    "vendor": "screenos",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show security ike security-associations": {
+    "verdict": "ok",
+    "vendor": "junos",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show security ipsec security-associations": {
+    "verdict": "ok",
+    "vendor": "junos",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show spanning-tree": [
+    {
+      "verdict": "ok",
+      "vendor": "cisco",
+      "source": "Claude 판단, 벤더 문서 확인 전",
+      "checked_at": "2026-09-17"
+    },
+    {
+      "verdict": "ok",
+      "vendor": "junos",
+      "source": "Claude 판단, 벤더 문서 확인 전 (Junos: show spanning-tree bridge / interface)",
+      "checked_at": "2026-09-17"
+    }
+  ],
+  "diagnose troubleticket list": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose sys interface": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose sys route": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose sys log": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose sys network route": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose sys user list": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose netstat": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose log forward": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose log memory": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose log database": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "get system highavailability": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "get policy id": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "config log forward": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "set log forward": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "get log settings": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose log test": {
+    "verdict": "ok",
+    "vendor": "fortigate",
+    "source": "FortiOS 기본 진단 명령, 버전 무관 확인",
+    "checked_at": "2026-09-17"
+  },
+  "config firewall policy": {
+    "verdict": "ok",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "config system interface": {
+    "verdict": "ok",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 실장비 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show spanning-tree instance": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show spanning-tree mode": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show spanning-tree feature": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show spanning-tree loop-detection": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show bpdu guard": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show ha session": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show redundancy": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show interface trunk": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show interfaces trunk": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show interface status": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show interfaces status": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show mac address-table": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show storm-control": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show etherchannel summary": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show lacp counters": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show running-config": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show version": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show logging": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "debug spanning-tree": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "copy running-config startup-config": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show vlan": [
+    {
+      "verdict": "ok",
+      "vendor": "cisco",
+      "source": "Claude 판단, 벤더 문서 확인 전",
+      "checked_at": "2026-09-17"
+    },
+    {
+      "verdict": "ok",
+      "vendor": "junos",
+      "source": "Claude 판단 (Junos는 show vlans, 접두어 입력 허용)",
+      "checked_at": "2026-09-17"
+    }
+  ],
+  "show spanning-tree vlan <VLAN> instance": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전 (vlan 뒤 instance 인자 없음)",
+    "checked_at": "2026-09-17"
+  },
+  "show ntp association": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전 (associations 포함)",
+    "checked_at": "2026-09-17"
+  },
+  "show clock": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show startup-config": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show ntp server": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, IOS 기준 (IOS 기준 판정은 선영 확인)",
+    "checked_at": "2026-09-17"
+  },
+  "show ntp offset": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "clock reset": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show ntp peers": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, NX-OS 전용 명령 (IOS 기준 판정은 선영 확인)",
+    "checked_at": "2026-09-17"
+  },
+  "show system ha status": {
+    "verdict": "wrong",
+    "vendor": "junos",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show chassis ha": {
+    "verdict": "wrong",
+    "vendor": "junos",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show chassis status": {
+    "verdict": "wrong",
+    "vendor": "junos",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show chassis fpc redundancy": {
+    "verdict": "wrong",
+    "vendor": "junos",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show configuration protocol vrrp": {
+    "verdict": "partial",
+    "vendor": "junos",
+    "source": "Claude 판단 (계층 이름은 protocols, VRRP는 주로 interfaces 아래 설정)",
+    "checked_at": "2026-09-17"
+  },
+  "show chassis fpc": {
+    "verdict": "ok",
+    "vendor": "junos",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show configuration interfaces": {
+    "verdict": "ok",
+    "vendor": "junos",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show vrrp": {
+    "verdict": "ok",
+    "vendor": "junos",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show chassis redundancy": {
+    "verdict": "ok",
+    "vendor": "junos",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "set chassis redundancy": {
+    "verdict": "partial",
+    "vendor": "junos",
+    "source": "Claude 판단 (RE 이중화용, EX 가상 섀시는 virtual-chassis)",
+    "checked_at": "2026-09-17"
+  },
+  "show interfaces": [
+    {
+      "verdict": "ok",
+      "vendor": "cisco",
+      "source": "Claude 판단, 벤더 문서 확인 전",
+      "checked_at": "2026-09-17"
+    },
+    {
+      "verdict": "ok",
+      "vendor": "junos",
+      "source": "Claude 판단, 벤더 문서 확인 전",
+      "checked_at": "2026-09-17"
+    }
+  ],
+  "show standby": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show redundancy states": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "redundancy force-switchover": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "debug vrrp": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show ip vrf": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "standby preempt": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "standby track": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show ha group": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show switch-over": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show logging detailed": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "debug lcp": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단 (PPP LCP 디버그, LACP 아님)",
+    "checked_at": "2026-09-17"
+  },
+  "show redundancy detail": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단 + 다른 AI 판단 일치, 장비·문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show vpn ipsec sa": {
+    "verdict": "wrong",
+    "vendor": "screenos",
+    "source": "Claude 판단 (ScreenOS는 get 명령 체계: get sa, get ike cookie)",
+    "checked_at": "2026-09-17"
+  },
+  "show vpn ike sa": {
+    "verdict": "wrong",
+    "vendor": "screenos",
+    "source": "Claude 판단 (ScreenOS는 get 명령 체계: get sa, get ike cookie)",
+    "checked_at": "2026-09-17"
+  },
+  "show ike sa": {
+    "verdict": "wrong",
+    "vendor": "screenos",
+    "source": "Claude 판단 (ScreenOS는 get 명령 체계: get sa, get ike cookie)",
+    "checked_at": "2026-09-17"
+  },
+  "show ipsec sa": {
+    "verdict": "wrong",
+    "vendor": "screenos",
+    "source": "Claude 판단 (ScreenOS는 get 명령 체계: get sa, get ike cookie)",
+    "checked_at": "2026-09-17"
+  },
+  "diag sec ipsec sa list": {
+    "verdict": "wrong",
+    "vendor": "screenos",
+    "source": "Claude 판단 (ScreenOS는 get 명령 체계: get sa, get ike cookie)",
+    "checked_at": "2026-09-17"
+  },
+  "show route": [
+    {
+      "verdict": "wrong",
+      "vendor": "screenos",
+      "source": "Claude 판단 (ScreenOS는 get route)",
+      "checked_at": "2026-09-17"
+    },
+    {
+      "verdict": "ok",
+      "vendor": "junos",
+      "source": "Claude 판단, 벤더 문서 확인 전",
+      "checked_at": "2026-09-17"
+    }
+  ],
+  "diagnose vpn ike sa": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose vpn ipsec sa": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose router static": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "diagnose sys int list": {
+    "verdict": "wrong",
+    "vendor": "fortigate",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show interface transceiver": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, IOS 기준, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show log": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, IOS 기준, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "undebug all": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, IOS 기준, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show module": {
+    "verdict": "partial",
+    "vendor": "cisco",
+    "source": "Claude 판단 (모듈형·스택 장비의 라인카드·멤버 표시, SFP 상태 확인용 아님)",
+    "checked_at": "2026-09-17"
+  },
+  "show controllers": {
+    "verdict": "partial",
+    "vendor": "cisco",
+    "source": "Claude 판단 (명령은 있으나 SFP 제조사·상태를 요약해 보여주지 않음)",
+    "checked_at": "2026-09-17"
+  },
+  "show power": {
+    "verdict": "partial",
+    "vendor": "cisco",
+    "source": "Claude 판단 (전원 공급장치·PoE 확인용, 포트별 SFP 전력 아님)",
+    "checked_at": "2026-09-17"
+  },
+  "show sfp": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, IOS 기준, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show chassis sfp": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, IOS 기준, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show inventory sfp": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, IOS 기준, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show diagnostics": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, IOS 기준, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show interface brief": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, IOS 기준, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show interfaces brief": {
+    "verdict": "wrong",
+    "vendor": "cisco",
+    "source": "Claude 판단, IOS 기준, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show lldp neighbor": [
+    {
+      "verdict": "ok",
+      "vendor": "cisco",
+      "source": "Claude 판단 (neighbors 포함)",
+      "checked_at": "2026-09-17"
+    },
+    {
+      "verdict": "ok",
+      "vendor": "junos",
+      "source": "Claude 판단 (neighbors 포함)",
+      "checked_at": "2026-09-17"
+    }
+  ],
+  "show vlan brief": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show ip arp": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "show ip access-list": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "switchport mode trunk": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "switchport trunk": {
+    "verdict": "ok",
+    "vendor": "cisco",
+    "source": "Claude 판단, 벤더 문서 확인 전",
+    "checked_at": "2026-09-17"
+  },
+  "family ethernet-switching port-mode trunk": {
+    "verdict": "partial",
+    "vendor": "junos",
+    "source": "Claude 판단 (non-ELS 문법, ELS는 interface-mode trunk)",
+    "checked_at": "2026-09-17"
+  },
+  "family ethernet-switching native-vlan-id": {
+    "verdict": "partial",
+    "vendor": "junos",
+    "source": "Claude 판단 (non-ELS 문법, ELS는 인터페이스 아래 native-vlan-id)",
+    "checked_at": "2026-09-17"
+  }
+}

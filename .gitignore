@@ -1,3 +1,19 @@
-﻿.venv/
+﻿# 가상환경
+.venv/
+env/
 .env
 __pycache__/
+.vscode/
+
+# 백업·폐기 파일
+*.bak_*
+*_폐기_*.csv
+scores_v2.csv
+
+# 점검 로그
+check_0917.txt
+
+# 구버전 데이터
+benchmark_local.csv
+benchmark_local_v2_old.csv
+eval_log.csv
