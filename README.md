@@ -75,6 +75,7 @@ python 05.report.py 0916-1644  # 특정 세션
 
 모델별 지표와 문제별 표, 회차 편차, 이상 행이 콘솔에 찍힌다.
 
+<<<<<<< HEAD
 > `05.report.py`의 `CSV_PATH`가 `benchmark_log.csv`로 박혀 있다. 이 실험 파일명은 `benchmark_local_v2.csv`라서 돌리기 전에 상수를 고쳐야 한다.
 
 ### 3. Cloud 실행
@@ -187,3 +188,9 @@ API 키와 조직 ID, 프로젝트 ID는 코드에도 저장소에도 로그에�
 ```powershell
 Copy-Item <백업파일> .\scores_v2_t1.csv -Force
 ```
+=======
+실행 파일 안의 `QUESTION` 한 줄을 바꾸고 **Ctrl+S**로 저장하면 다른 질문을 보낼 수 있습니다. 이 파일들은 대화 기록을 유지하지 않고, 매번 질문 1개를 새로 보냅니다.
+=======
+# project1_Choi_Seonyoung
+
+>>>>>>> 1e52634c3a66e2bbfbe7c7b8e8b531fe5a707546
