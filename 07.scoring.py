@@ -463,7 +463,7 @@ def summary(sessions=None):
     models = sorted({k[1] for k in runs})
     W = 22
 
-    print(f"\n[문항별 총점] 루브릭 {RUBRIC_VERSION} / {SCORES.name}")
+    print(f"\n[문항별 총점] 채점표 {RUBRIC_VERSION} / {SCORES.name}")
     print("  표기: 평균(최소~최대) n=완료 회차 수 / 총점 만점 15")
     print("  * 5축 미완료 회차 있음, ! A=0 관문, R 위험 조치, L 길이, X 반복, E 배제, C 모순, F 사실오류")
     print("문항  " + "".join(f"{m:>{W}}" for m in models))
