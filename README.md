@@ -1,6 +1,8 @@
 # 네트워크 장애 대응 Assistant용 로컬 LLM 선정
 
-네트워크 장비 장애 대응 질의에 쓸 로컬 LLM을 고르려고 Ollama로 3개 모델을 같은 조건에서 돌려 비교했다. 문항 10개는 실무에서 직접 겪은 장애 사례에서 가져왔다.
+로컬 LLM 세 모델을 같은 조건에서 비교해, 사내 네트워크 엔지니어의 장애 대응에 쓸 만한 모델이 있는지 확인한 프로젝트다. 챗봇을 만든 것이 아니라 평가 기준을 잡기 위해 사용 상황으로 가정했다.
+
+실무에서 직접 겪은 장애 사례로 10문항을 만들어 Ollama로 각 모델에 돌리고, 다섯 개 축으로 된 채점표로 평가했다. 신입 엔지니어도 쓴다는 전제라 속도보다 정확도를 우선 기준으로 삼았다.
 
 작성자: 최선영
 
@@ -8,7 +10,7 @@
 
 ## 결과 요약
 
-10문항을 3회씩, 총 90건을 5축 루브릭(v2.1, 15점 만점)으로 채점했다.
+10문항을 3회씩, 총 90건을 5축 채점표(루브릭 v2.1, 15점 만점)로 채점했다.
 
 | 모델 | 총점 | A 사실 | B 불확실성 | C 밀도 | D 단서 | E 지시 | n |
 |---|---|---|---|---|---|---|---|
@@ -16,13 +18,25 @@
 | llama3.1:8b | 3.90 | 0.77 | 0.23 | 0.30 | 0.17 | 2.43 | 30 |
 | gemma3:4b | 3.53 | 0.00 | 1.00 | 1.00 | 0.43 | 1.10 | 30 |
 
-qwen3:8b를 골랐다. 다만 사실 정확도(A축)가 세 모델 모두 3점 만점에 1점도 안 되게 나왔다. 상대적으로 제일 낫다는 뜻이지 지금 상태로 실무에 넣어도 된다는 뜻은 아니다.
+qwen3:8b를 골랐다. 다만 정확도(A축)가 세 모델 모두 3점 만점에 1점도 안 되게 나왔다. 상대적으로 제일 낫다는 뜻이지 지금 상태로 실무에 넣어도 된다는 뜻은 아니다.
 
 Cloud 쪽은 공통 5문항을 한 번씩 돌렸고 gpt-5.6-luna 14.0점, gemini-3.6-flash 11.8점이었다. 같은 문항에서 로컬 1위가 7.40점이니 격차가 두 배 가까이 난다.
+
+본 실험을 마친 뒤, 생성 설정만 바꿔도 정확도가 오르는지 따로 확인했다. qwen3:8b로 공통 5문항을 3회씩 돌려 A축만 채점한 결과는 아래와 같다.
+
+| 설정 | A축 평균 | 평균 응답 시간 |
+|---|---|---|
+| baseline (본 실험과 같은 조건) | 0.47 | 11.7초 |
+| think (thinking 켬) | 0.40 | 23.1초 |
+| temp06 (temperature 0.6) | 0.67 | 12.3초 |
+
+세 설정 모두 1점을 넘지 못했다. thinking은 응답 시간만 두 배로 늘고 A축은 오르지 않았다. 본 실험 결과를 같은 5문항으로 다시 집계하면 0.40이라 수준이 같다. 설정으로는 개선되지 않는다는 뜻이고, 규모의 영향은 더 큰 모델로 확인해야 한다.
 
 ---
 
 ## 실험 환경
+
+본 실험은 수업용 노트북에서 돌렸다.
 
 | 항목 | 값 |
 |---|---|
@@ -32,6 +46,8 @@ Cloud 쪽은 공통 5문항을 한 번씩 돌렸고 gpt-5.6-luna 14.0점, gemini
 | 주요 패키지 | ollama 0.6.2, openai 3.8.0, google-genai 2.24.0 |
 | RAM | 약 31.4 GB |
 | GPU | NVIDIA RTX 5060 Laptop, 8,151 MiB |
+
+후속 실험(생성 설정 비교)은 집 PC에서 돌렸다. RTX 3060 Ti, VRAM 8,192 MiB(유휴 약 736 MiB 사용), RAM 64 GB, Python 3.12.14, Ollama 0.34.1이다. qwen3:8b는 두 환경 모두 전체 GPU에 올라갔고(5,900 MiB), 생성 속도는 집 PC가 72 tok/s로 노트북(61.9 tok/s)보다 빨랐다.
 
 세 모델 다 Q4_K_M 양자화를 썼고 실험 context는 8,192(num_ctx)로 맞췄다.
 
@@ -65,6 +81,8 @@ python 04.ollama_test.py
 
 10문항을 3회씩 세 모델에 돌린다. 결과는 `benchmark_local_v2.csv`, 응답 원문은 `responses/`에 쌓인다. 생성 조건은 temperature 1.0, num_predict 8192, num_ctx 8192이고 seed는 42에 회차를 더해 43·44·45를 쓴다. qwen3:8b만 thinking을 껐다(`think=False`).
 
+문항마다 모델을 내렸다 다시 올리려면 `--reload question`을 붙인다. 본 실험은 이 조건으로 돌렸다.
+
 ### 2. 벤치마크 집계
 
 ```powershell
@@ -75,7 +93,6 @@ python 05.report.py 0916-1644  # 특정 세션
 
 모델별 지표와 문제별 표, 회차 편차, 이상 행이 콘솔에 찍힌다.
 
-<<<<<<< HEAD
 > `05.report.py`의 `CSV_PATH`가 `benchmark_log.csv`로 박혀 있다. 이 실험 파일명은 `benchmark_local_v2.csv`라서 돌리기 전에 상수를 고쳐야 한다.
 
 ### 3. Cloud 실행
@@ -104,7 +121,31 @@ python 07.scoring.py --summary
 
 `scores_v2_t1.csv`에서 모델별 총점과 축별 평균, 플래그를 집계한다.
 
-### 6. 채점 병합 (1회성)
+### 6. 후속 실험 (생성 설정 비교)
+
+`04.ollama_test.py`에 `--config`로 생성 설정을, `--set`으로 문항 세트를 고른다. 설정은 `baseline`(본 실험과 같은 조건), `think`(thinking만 켬), `temp06`(temperature만 0.6) 세 가지다.
+
+```powershell
+python 04.ollama_test.py --models qwen3:8b --set common5 --runs 3 --reload question --config baseline
+python 04.ollama_test.py --models qwen3:8b --set common5 --runs 3 --reload question --config think
+python 04.ollama_test.py --models qwen3:8b --set common5 --runs 3 --reload question --config temp06
+```
+
+결과는 `benchmark_followup.csv`에 따로 쌓인다. 본 실험 CSV와 열 구성이 달라(설정·temperature·think 열 추가) 섞지 않는다. 응답 원문은 `responses/`에 `세션_설정_문항_모델_회차.md` 이름으로 들어가고, thinking을 켠 회차는 사고 과정을 `_thinking.md`로 따로 저장한다.
+
+채점은 `--followup`을 붙인다. `benchmark_followup.csv`를 읽고 점수는 `scores_followup.csv`에 쌓이며, `_thinking.md`는 채점 대상에서 빠진다.
+
+```powershell
+python 07.scoring.py --followup --list      # 대상 45건 확인
+python 07.scoring.py --followup --axis A    # 축별 채점
+python 07.scoring.py --followup --summary   # 설정별 집계
+```
+
+`--configs baseline think`처럼 특정 설정만 골라 볼 수도 있다. 채점 화면에는 모델과 설정이 나오지 않는다.
+
+크기를 키운 모델을 비교할 때는 `--models qwen3:14b --config baseline`처럼 모델만 바꿔 같은 조건으로 돌린다.
+
+### 7. 채점 병합 (1회성)
 
 Cloud 채점 결과를 기존 파일에 합칠 때 쓴 스크립트다. 순서대로 돌렸고 단계마다 백업을 남겼다.
 
@@ -122,7 +163,7 @@ Cloud 채점 결과를 기존 파일에 합칠 때 쓴 스크립트다. 순서�
 
 | 파일 | 역할 |
 |---|---|
-| `04.ollama_test.py` | 로컬 벤치마크 수집 |
+| `04.ollama_test.py` | 로컬 벤치마크 수집, 생성 설정 비교 |
 | `05.report.py` | 로컬 벤치마크 집계 |
 | `06.report.luna.py` | luna 집계와 비용 계산 |
 | `07.scoring.py` | 채점 집계 |
@@ -140,8 +181,10 @@ Cloud 채점 결과를 기존 파일에 합칠 때 쓴 스크립트다. 순서�
 |---|---|
 | `benchmark_local_v2.csv` | 로컬 90건 측정 결과 |
 | `benchmark_gemini.csv`, `benchmark_luna.csv` | Cloud 각 5건 |
+| `benchmark_followup.csv` | 후속 실험 45건 측정 결과 (설정별) |
 | `scores_v2_t1.csv` | 채점 결과 505행 (로컬 450, Cloud 50, q10 D축 재입력 5) |
 | `scores_luna_v2_t1.csv` | luna 독립 채점 원본 |
+| `scores_followup.csv` | 후속 실험 채점 결과 (A축 45행) |
 | `answers_q01~q10.md` | 문항별 응답 모음 |
 | `responses/`, `responses_gemini/`, `responses_luna/` | 응답 원문 |
 
@@ -153,7 +196,7 @@ Cloud 채점 결과를 기존 파일에 합칠 때 쓴 스크립트다. 순서�
 
 | 축 | 내용 |
 |---|---|
-| A | 사실 정확성. 제시한 명령과 설정이 문서에서 확인되는지 |
+| A | 정확성. 제시한 명령과 설정이 문서에서 확인되는지 |
 | B | 불확실성 처리. 확인이 필요한 항목과 확인 방법을 밝히는지 |
 | C | 정보 밀도. 상황에 맞는 내용인지 일반론인지 |
 | D | 단서 활용. 질문에 나온 단서를 쓰는지, 이미 배제된 걸 다시 확인하지는 않는지 |
@@ -172,6 +215,8 @@ Cloud 채점 결과를 기존 파일에 합칠 때 쓴 스크립트다. 순서�
 평가셋이 10문항뿐이라 점수 차이를 그대로 믿기는 어렵다. temperature를 1.0으로 뒀으니 돌릴 때마다 결과도 달라진다. 실제로 같은 문항 3회 총점이 qwen3:8b와 llama3.1:8b는 최대 4점까지 벌어졌다. gemma3:4b는 1점 안에서 움직였는데, 잘해서가 아니라 매번 비슷하게 못했기 때문이다.
 
 Cloud는 5문항을 한 번씩만 돌려서 분산 자체가 없고, 로컬 3회 평균과 반복 수가 달라 나란히 놓고 보기에 무리가 있다. 두 Cloud 스크립트 모두 추론 토큰 수를 화면에만 찍고 CSV에는 안 남긴다. 다시 돌릴 일이 있으면 열을 추가해야 한다.
+
+후속 실험은 범위를 줄였다. 공통 5문항에 A축만 채점했고 나머지 문항과 축은 평가하지 않았다. 채점도 AI 판정을 참고해 입력했고 파일명으로 설정을 알 수 있어 블라인드가 아니다. 본 실험(단독 블라인드 채점)과 채점 경로가 달라 점수를 직접 비교하지 않는다.
 
 `benchmark_local_v2.csv`의 `위험명령어` 열은 검출 로직이 두 단어짜리 표현을 전부 걸러내는 바람에 거의 다 Y가 찍혔다. 쓰지 않는 게 낫다. 같은 파일의 로딩 시간(0.002~0.007초)도 워밍업 뒤에 잰 값이라 콜드 로딩이 아니다. 콜드 로딩은 따로 측정했다.
 
